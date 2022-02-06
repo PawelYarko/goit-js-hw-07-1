@@ -1,4 +1,34 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+const gallery = document.querySelector('.gallery');
+
+
+function createGallery(galleryItems){
+  return galleryItems.map((img, index) =>
+    `<div class="gallery__item">
+    <a class="gallery__link" href="${img.original}">
+      <img
+        class="gallery__image"
+        src="${img.preview}"
+        data-source="${img.original}"
+        data-index="${index}"
+        alt="${img.description}"
+        title="${img.description}"
+      />
+    </a>
+  </div>`
+  ).join("");
+}
+
+const createGalleryElements = createGallery(galleryItems);
+gallery.innerHTML = createGalleryElements;
+
+gallery.addEventListener('click', onImageClick);
+
+function onImageClick(e){
+  e.preventDefault();
+// console.log(e.target.dataset.source);
+let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'title' ,captionPosition:'bottom', captionDelay: 250, });
+  
+}
