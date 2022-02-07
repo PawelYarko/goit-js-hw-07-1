@@ -26,9 +26,11 @@ gallery.innerHTML = createGalleryElements;
 
 gallery.addEventListener('click', onImageClick);
 
+let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'title' ,captionPosition:'bottom', captionDelay: 250, });
+
 function onImageClick(e){
   e.preventDefault();
 // console.log(e.target.dataset.source);
-let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'title' ,captionPosition:'bottom', captionDelay: 250, });
+// let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'title' ,captionPosition:'bottom', captionDelay: 250, });
   
 }
